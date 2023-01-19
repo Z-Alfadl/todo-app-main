@@ -1,0 +1,182 @@
+* {
+    --lightgray: hsl(0, 0%, 98%);
+    --lightgrayblue: hsl(236, 33%, 92%);
+    --grayblue: hsl(233, 11%, 84%);
+    --darkglayblue: hsl(236, 9%, 61%);
+    --darkestgrayblue: hsl(235, 19%, 35%);
+    --DarkBlue: hsl(235, 21%, 11%);
+    --DesaturatedBlue: hsl(235, 24%, 19%);
+    --LightGrayishBlue: hsl(234, 39%, 85%);
+    --LightGrayishBluehover: hsl(236, 33%, 92%);
+    --DarkGrayishBlue: hsl(234, 11%, 52%);
+    --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+    --DarkestGrayishBlue: hsl(237, 14%, 26%);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: white;
+}
+
+.light-body {
+    background-color: var(--lightgrayblue);
+}
+
+.light-header {
+    background-image: url(./images/bg-desktop-light.jpg);
+    height: 18.75em;
+    overflow: hidden;
+}
+
+.dark-body {
+    background-color: var(--DarkBlue);
+}
+
+.dark-header {
+    background-image: url(./images/bg-desktop-dark.jpg);
+}
+
+.toggle-light {
+    background-image: url(/images/icon-moon.svg);
+    height: 26px;
+    width: 26px;
+    display: block;
+}
+
+.toggle-dark {
+    background-image: url(/images/icon-sun.svg);
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/*Styling for Check Icons*/
+.circle {
+    height: 24px;
+    width: 24px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: block;
+}
+.check {
+    appearance: none;
+    position: relative;
+}
+.check:checked {
+    background: linear-gradient(blue, purple);
+}
+.check:checked:after {
+    display: block;
+}
+
+.check::after {
+    content: "";
+    background-image: url(/images/icon-check.svg);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-position: 50%;
+}
+
+/*Styling for X button*/
+.delete {
+    all: unset;
+    opacity: 0;
+    margin-right: 1em;
+}
+.delete:hover {
+    opacity: 1;
+}
+/*Styling for List Section*/
+main {
+    width: 540px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%
+}
+.container {
+    max-width: 33.75em;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+.banner {
+    margin: 0 auto 2.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Styling for ToDo list input field*/
+.label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    padding: 0.75em 1em;
+    gap: 0 1em;
+    margin-bottom: 1.5em;
+}
+#entry {
+    border: none;
+    width: 100%;
+}
+.hidden-entry {
+    display: none;
+}
+#entry:focus {
+    outline: none;
+}
+/*Styling for actual list section*/
+.todo-list {
+    border-radius: 5px;
+    background-color: white;
+    padding: 0;
+}
+.todo-entry {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 0.8em;
+    padding: 1em;
+    border-bottom: 1px solid grey;
+    cursor: pointer;
+}
+.todo-sample {
+    flex-grow:1;
+}
+.hide {
+    display: none;
+}
+/*Bottom of List*/
+.container-foot {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+}
+
+#remaining {
+    margin-left: 1.5em;
+    color: hsla(235, 9%, 61%, 1);
+}
+#clear {
+    margin-right: 1.5em;
+    color: hsla(235, 9%, 61%, 1);
+}
+a:checked {
+    color: blue;
+    background-color: green;
+}
+.filter {
+    color: hsla(235, 9%, 61%, 1);
+    font-weight: 700;
+}
+.active {
+    color: hsla(220, 98%, 61%, 1)
+}
