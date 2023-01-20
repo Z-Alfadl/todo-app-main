@@ -104,3 +104,10 @@ let positive = liList.length;
 listCount.innerHTML = `${positive} items left`;
 }
 
+//Completed All/Active/Completed filters, leaving off on
+//figuring out how to dynamically update "items left" field
+
+
+//Once thats done, next steps are to finish "Clear" button,
+//Style + code "drag and drop", add dark-mode styling,
+//check mobile viewport, and thats it. 
