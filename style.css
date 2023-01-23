@@ -40,8 +40,8 @@ h1 {
 
 .toggle-light {
     background-image: url(/images/icon-moon.svg);
-    height: 26px;
-    width: 26px;
+    height: 1.625rem;
+    width: 1.625rem;
     display: block;
 }
 
@@ -55,8 +55,8 @@ a:hover {
 
 /*Styling for Check Icons*/
 .circle {
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
     border: 1px solid black;
     border-radius: 50%;
     display: block;
@@ -93,7 +93,7 @@ a:hover {
 }
 /*Styling for List Section*/
 main {
-    width: 540px;
+    width: 33.75rem;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -145,7 +145,14 @@ main {
     gap: 0 0.8em;
     padding: 1em;
     border-bottom: 1px solid grey;
-    cursor: pointer;
+    cursor: move;
+}
+.todo-entry.over {
+    border: 3px dotted #666
+}
+.complete {
+    color: hsla(233, 11%, 84%, 1);
+    text-decoration: line-through;
 }
 .todo-sample {
     flex-grow:1;
@@ -177,6 +184,16 @@ a:checked {
     color: hsla(235, 9%, 61%, 1);
     font-weight: 700;
 }
+.filter:hover, #clear:hover {
+    color: hsla(235, 19%, 35%, 1);
+}
 .active {
     color: hsla(220, 98%, 61%, 1)
+}
+.dragndrop {
+width: 11.25rem;
+max-height: 1rem;
+margin:3rem auto;
+font-size: 14px;
+color: hsla(235, 19%, 61%, 1)
 }

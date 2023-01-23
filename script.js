@@ -96,13 +96,31 @@ let displayComplete = function (e) {
     }
    } 
 }
+
+//Dynamically updates the "items left" field
+
 var liList = document.getElementsByTagName("li")
+var liLeft = document.getElementsByClassName("complete")
 var listCount = document.getElementById("remaining")
 let randomFunction = function() {
-//listCount.innerHTML = `${liList.length} items left`
-let positive = liList.length;  
+let positive = liList.length - liLeft.length;  
 listCount.innerHTML = `${positive} items left`;
 }
+document.body.addEventListener("change", randomFunction)
+
+//Clear Completed Button
+var clearButton = document.getElementById("clear")
+let clearComplete = function () {
+  const liClear = [...document.querySelectorAll("li")];
+  if (liLeft.length <= 0) {
+    alert(`There were no items to clear`)
+  } else {
+  liClear.forEach(elem => {
+    if (elem.classList.contains("complete"))  
+    elem.parentNode.removeChild(elem);
+  })}
+}
+clearButton.addEventListener("click", clearComplete)
 
 //Completed All/Active/Completed filters, leaving off on
 //figuring out how to dynamically update "items left" field
@@ -111,3 +129,49 @@ listCount.innerHTML = `${positive} items left`;
 //Once thats done, next steps are to finish "Clear" button,
 //Style + code "drag and drop", add dark-mode styling,
 //check mobile viewport, and thats it. 
+
+//Drag and drop
+
+document.addEventListener('DOMContentLoaded', (event) =>
+{
+  function handleDragStart(e) {
+  this.style.opacity = '0.4';
+  dragSrcEl = this;
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML)
+}
+
+function handleDragEnd(e) {
+  this.style.opacity = '1';
+
+  items.forEach(function (item) {
+    item.classList.remove('over')
+  })
+}
+function handleDragOver(e) {
+  e.preventDefault();
+  return false;
+}
+function handleDragEnter(e) {
+  this.classList.add('over');
+}
+function handleDragLeave(e) {
+  this.classList.remove('over');
+}
+function handleDrop(e) {
+  e.stopPropagation();
+  if (dragSrcEl !== this) {
+    dragSrcEl.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html')
+  }
+  return false;
+}
+let items = document.querySelectorAll('.todo-entry');
+items.forEach(function (item) {
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragover', handleDragOver)
+  item.addEventListener('dragenter', handleDragEnter)
+  item.addEventListener('dragleave', handleDragLeave)
+  item.addEventListener('dragend', handleDragEnd);
+  item.addEventListener('drop', handleDrop)
+});})

@@ -26,7 +26,7 @@
 <body class="light-body" id="stage">
 
   <header class="light-header" id="header-banner">
-    
+
   </header>
 
 
@@ -35,52 +35,62 @@
       <div class="banner">
         <h1>Todo</h1>
         <a class="toggle-light" id="swap"></a>
-        </div>
+      </div>
       <div class="todo">
         <label for="todo" class="label">
-            <span class="circle"></span>
-            <input id="entry" type="text" placeholder="Create a new Todo..." onkeydown="appendEntry">
+          <span class="circle"></span>
+          <input id="entry" type="text" placeholder="Create a new Todo..." onkeydown="appendEntry">
         </label>
         <ul class="todo-list" id="tasks">
-            <li class="todo-entry">
-                <input class="check circle" onclick="checkTag(this)" type="checkbox">
-                <p class="todo-sample">Pick up Groceries</p>
-                <button class="delete"><img src="./images/icon-cross.svg"></button>
-            </li>
-            <li class="todo-entry">
-                <input class="check circle" onclick="checkTag(this)" type="checkbox">
-                <p class="todo-sample">10 minutes of Meditation</p>
-                  <button class="delete tester"><img src="./images/icon-cross.svg"></button>
-            </li>
-            <li class="todo-entry">
-                <input class="check circle" onclick="checkTag(this)" type="checkbox">
-                <p class="todo-sample">Read for 1 hour</p>
-                <button class="delete"><img src="./images/icon-cross.svg"></button>
-            </li>
-            <li class="todo-entry">
-                <input class="check circle" onclick="checkTag(this)" type="checkbox">
-                <p class="todo-sample">Jog around the park 3x</p>
-                <button class="delete"><img src="./images/icon-cross.svg"></button>
-            </li>
+          <li class="todo-entry complete" draggable="true">
+            <input class="check circle" checked onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">Complete Online Javascript Course</p>
+            <button class="delete"><img src="./images/icon-cross.svg"></button>
+          </li>
+          <li class="todo-entry" draggable="true">
+            <input class="check circle" onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">Pick up Groceries</p>
+            <button class="delete"><img src="./images/icon-cross.svg"></button>
+          </li>
+          <li class="todo-entry" draggable="true">
+            <input class="check circle" onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">10 minutes of Meditation</p>
+            <button class="delete tester"><img src="./images/icon-cross.svg"></button>
+          </li>
+          <li class="todo-entry" draggable="true">
+            <input class="check circle" onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">Read for 1 hour</p>
+            <button class="delete"><img src="./images/icon-cross.svg"></button>
+          </li>
+          <li class="todo-entry" draggable="true">
+            <input class="check circle" onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">Jog around the park 3x</p>
+            <button class="delete"><img src="./images/icon-cross.svg"></button>
+          </li>
+          <li class="todo-entry" draggable="true">
+            <input class="check circle" onclick="checkTag(this)" type="checkbox">
+            <p class="todo-sample">Complete Todo App on Frontend Mentor</p>
+            <button class="delete"><img src="./images/icon-cross.svg"></button>
+          </li>
         </ul>
-    </div>
+      </div>
       <div class="container-foot">
-       <div class="item-number">
+        <div class="item-number">
           <!-- Add dynamic number -->
-          <p id="remaining">items left</p>
-          
-       </div>
+          <p id="remaining">5 items left</p>
+
+        </div>
         <div class="todo-filters" id="filter-box">
-          <a class="filter" id="all" onclick="displayAll()">All</a>
-          <a class="filter"  id="active">Active</a>
+          <a class="filter active" id="all" onclick="displayAll()">All</a>
+          <a class="filter" id="active">Active</a>
           <a class="filter" id="complete" onclick="displayComplete()">Completed</a>
         </div>
         <a id="clear">Clear Completed</a>
       </div>
+      <div class="dragndrop">
+        <p>Drag and drop to reorder list</p>
+      </div>
 
-     
-
-      <p>Drag and drop to reorder list</p>
 
     </div>
   </main>
