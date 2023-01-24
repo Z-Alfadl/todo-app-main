@@ -14,12 +14,42 @@
     margin: 0;
     padding: 0;
 }
+/*Attribution fixed to bottom*/
+.attribution {
+    position: fixed;
+    bottom: 0;
+    font-size: 11px;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+  }
 
 h1 {
     font-size: 2.5em;
     color: white;
 }
-
+a:hover {
+    cursor: pointer;
+}
+/*Default Styling for page. The default is Light Mode*/
+/*
+TARGETS FOR DARK MODE:
+    HEADER IMAGE
+    SUN/MOON ICON
+    BODY COLOR
+    COMMON CHANGE-1   {
+    - LABEL BACKGROUND COLOR
+    - INPUT BACKGROUND COLOR
+    - LI BACKGROUND COLOR
+    }
+    COMMON CHANGE-2 {
+    - SPAN COLOR
+    - P COLOR
+    - P-COMPLETE COLOR
+    }
+    CONTAINER-FOOT COLOR & BACKGROUND-COLOR
+    CHECKBOX & CROSS
+*/
 .light-body {
     background-color: var(--lightgrayblue);
 }
@@ -30,14 +60,6 @@ h1 {
     overflow: hidden;
 }
 
-.dark-body {
-    background-color: var(--DarkBlue);
-}
-
-.dark-header {
-    background-image: url(./images/bg-desktop-dark.jpg);
-}
-
 .toggle-light {
     background-image: url(/images/icon-moon.svg);
     height: 1.625rem;
@@ -45,13 +67,22 @@ h1 {
     display: block;
 }
 
+/*Styling for Dark Mode*/
+.dark-body {
+    background-color: var(--DarkBlue) !important; 
+}
+
+.dark-header {
+    background-image: url(./images/bg-desktop-dark.jpg);
+}
+
 .toggle-dark {
     background-image: url(/images/icon-sun.svg);
 }
-
-a:hover {
-    cursor: pointer;
+.dark-list {
+    background-color: var(--DesaturatedBlue);
 }
+
 
 /*Styling for Check Icons*/
 .circle {
@@ -61,13 +92,16 @@ a:hover {
     border-radius: 50%;
     display: block;
 }
+
 .check {
     appearance: none;
     position: relative;
 }
+
 .check:checked {
     background: linear-gradient(blue, purple);
 }
+
 .check:checked:after {
     display: block;
 }
@@ -88,9 +122,11 @@ a:hover {
     opacity: 0;
     margin-right: 1em;
 }
+
 .delete:hover {
     opacity: 1;
 }
+
 /*Styling for List Section*/
 main {
     width: 33.75rem;
@@ -99,11 +135,13 @@ main {
     transform: translateX(-50%);
     top: 5%
 }
+
 .container {
     max-width: 33.75em;
     margin: 0 auto;
     padding: 0 2em;
 }
+
 .banner {
     margin: 0 auto 2.5em;
     width: 100%;
@@ -122,22 +160,23 @@ main {
     gap: 0 1em;
     margin-bottom: 1.5em;
 }
+
 #entry {
     border: none;
     width: 100%;
 }
-.hidden-entry {
-    display: none;
-}
+
 #entry:focus {
     outline: none;
 }
+
 /*Styling for actual list section*/
 .todo-list {
     border-radius: 5px;
     background-color: white;
     padding: 0;
 }
+
 .todo-entry {
     display: flex;
     justify-content: flex-start;
@@ -147,19 +186,24 @@ main {
     border-bottom: 1px solid grey;
     cursor: move;
 }
+
 .todo-entry.over {
     border: 3px dotted #666
 }
+
 .complete {
     color: hsla(233, 11%, 84%, 1);
     text-decoration: line-through;
 }
+
 .todo-sample {
-    flex-grow:1;
+    flex-grow: 1;
 }
+
 .hide {
     display: none;
 }
+
 /*Bottom of List*/
 .container-foot {
     background-color: white;
@@ -172,28 +216,35 @@ main {
     margin-left: 1.5em;
     color: hsla(235, 9%, 61%, 1);
 }
+
 #clear {
     margin-right: 1.5em;
     color: hsla(235, 9%, 61%, 1);
 }
+
 a:checked {
     color: blue;
     background-color: green;
 }
+
 .filter {
     color: hsla(235, 9%, 61%, 1);
     font-weight: 700;
 }
-.filter:hover, #clear:hover {
+
+.filter:hover,
+#clear:hover {
     color: hsla(235, 19%, 35%, 1);
 }
+
 .active {
     color: hsla(220, 98%, 61%, 1)
 }
+
 .dragndrop {
-width: 11.25rem;
-max-height: 1rem;
-margin:3rem auto;
-font-size: 14px;
-color: hsla(235, 19%, 61%, 1)
+    width: 11.25rem;
+    max-height: 1rem;
+    margin: 3rem auto;
+    font-size: 14px;
+    color: hsla(235, 19%, 61%, 1)
 }

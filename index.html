@@ -12,14 +12,9 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
+
+
   </style>
 </head>
 
@@ -37,7 +32,7 @@
         <a class="toggle-light" id="swap"></a>
       </div>
       <div class="todo">
-        <label for="todo" class="label">
+        <label for="todo" class="label" id="input-label">
           <span class="circle"></span>
           <input id="entry" type="text" placeholder="Create a new Todo..." onkeydown="appendEntry">
         </label>
@@ -76,14 +71,12 @@
       </div>
       <div class="container-foot">
         <div class="item-number">
-          <!-- Add dynamic number -->
           <p id="remaining">5 items left</p>
-
         </div>
         <div class="todo-filters" id="filter-box">
-          <a class="filter active" id="all" onclick="displayAll()">All</a>
+          <a class="filter active" id="all">All</a>
           <a class="filter" id="active">Active</a>
-          <a class="filter" id="complete" onclick="displayComplete()">Completed</a>
+          <a class="filter" id="complete">Completed</a>
         </div>
         <a id="clear">Clear Completed</a>
       </div>
@@ -95,12 +88,9 @@
     </div>
   </main>
 
-
-
-
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Ziad Alfadl</a>.
   </div>
 </body>
 <script src="script.js"></script>

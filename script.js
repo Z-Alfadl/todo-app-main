@@ -1,25 +1,52 @@
+//CURRENT TASKLIST:
+//FIX DARK MODE STYLINGS.
+//CLEANUP+ORGANIZE CODE
+//PUBLISH
+
+
+//GLOBAL VARIABLES
+  //1. Variable(s) used in light/dark mode
+let swap = document.getElementById("swap")
+let taskChildren = document.querySelectorAll('li')
+let inputLabel = document.getElementById('input-label')
+  //2. Variable(s) used in adding/removing list items
+let taskInput = document.getElementById("entry");
+let incompleteTasks = document.getElementById("tasks")
+var clearButton = document.getElementById("clear")
+
+  //3. Variable(s) used in filtering list items
+var tabLink = document.querySelectorAll('.filter')
+let showAll = document.getElementById("all")
+let showActive = document.getElementById("active")
+let showComplete = document.getElementById("complete")
+let showList = document.getElementsByTagName("li") 
+var liList = document.getElementsByTagName("li")
+var liLeft = document.getElementsByClassName("complete")
+var listCount = document.getElementById("remaining")
+
 
 //Function to toggle class of certain elements, applying
 //different CSS styling depending on if in night or day mode.
-let swap = document.getElementById("swap")
-
+let randomthing = function() {
+  taskChildren.forEach(function(e) {
+    e.classList.toggle('dark-list')
+  });
+  inputLabel.classList.toggle('dark-list')
+}
 swap.addEventListener('click', () => {
   document.getElementById("header-banner").classList.toggle("dark-header")
   document.getElementById("stage").classList.toggle("dark-body");
   document.getElementById("swap").classList.toggle("toggle-dark");
+  randomthing();
 })
 
 
 //Function to add a li template based on info typed into
 //input field at the top. Triggered by pressing 'Enter'
 //Will not add li if field is blank.
-let taskInput = document.getElementById("entry");
-let incompleteTasks = document.getElementById("tasks")
-
 var appendEntry = function (e) {
   let inputText = document.getElementById("entry").value;
   var linode = document.createElement("li");
-  var liClass = document.querySelector('li');
   if (e.code == 'Enter' && inputText != '') {
     linode.innerHTML = `<input class="check circle" onclick="checkTag(this)" type="checkbox">
         <p class="todo-sample">${inputText}</p>
@@ -27,7 +54,7 @@ var appendEntry = function (e) {
     incompleteTasks.appendChild(linode)
     linode.setAttribute("class", "todo-entry")
     document.getElementById("entry").value = "";
-    randomFunction()
+    itemCount()
   }
 }
 taskInput.addEventListener('keypress', appendEntry);
@@ -38,13 +65,10 @@ taskInput.addEventListener('keypress', appendEntry);
 incompleteTasks.onclick = function(e) {
   let targetted = e.target.closest('button');  
   targetted.parentNode.remove();
-  randomFunction()
+  itemCount()
 }
 
 //Filter buttons appearance, "active" filters will be colored blue
-var tabLink = document.querySelectorAll('.filter'),
-    tabPane = document.querySelectorAll('.tab-pane')
-
 tabLink.forEach(function(item){
     item.addEventListener('click', function(){
         tabLink.forEach(function(item) {
@@ -56,11 +80,7 @@ tabLink.forEach(function(item){
 
 //Actual Filter Functioniality
 
-let showAll = document.getElementById("all")
-let showActive = document.getElementById("active")
-let showComplete = document.getElementById("complete")
-let showList = document.getElementsByTagName("li") 
-let checkedBox = document.querySelectorAll("check")
+
 //Checking an individual list item will toggle the "complete" class
 //Uncheck will remove the "complete" class
 const checkTag = function(e) {
@@ -69,24 +89,23 @@ const checkTag = function(e) {
 }
 
 //Sets all items in the list to be displayed
-let displayAll = function() {
+showAll.addEventListener ("click", function() {
   for (var i = 0; i < showList.length; i++) {
     showList[i].classList.remove("hide")
-  }
-};
+  };
+})
 
 //Displays unchecked items and hides checked (completed) items
 showActive.addEventListener ("click", function() {
-  
   for (var i = 0; i <showList.length; i++) {
     showList[i].classList.remove("hide")
     if (showList[i].classList.contains("complete")) {
       showList[i].classList.add("hide")
     };
   }
-})
+});
 //Displays checked items (completed) and hides unchecked items//
-let displayComplete = function (e) {
+showComplete.addEventListener("click", function (e) {
    for (var i = 0; i < showList.length; i++) {
     var classCheck = showList[i]
     showList[i].classList.remove("hide")
@@ -95,21 +114,19 @@ let displayComplete = function (e) {
       classCheck.classList.add("hide")
     }
    } 
-}
+});
 
 //Dynamically updates the "items left" field
 
-var liList = document.getElementsByTagName("li")
-var liLeft = document.getElementsByClassName("complete")
-var listCount = document.getElementById("remaining")
-let randomFunction = function() {
+
+let itemCount = function() {
 let positive = liList.length - liLeft.length;  
 listCount.innerHTML = `${positive} items left`;
 }
-document.body.addEventListener("change", randomFunction)
+document.body.addEventListener("change", itemCount)
 
 //Clear Completed Button
-var clearButton = document.getElementById("clear")
+
 let clearComplete = function () {
   const liClear = [...document.querySelectorAll("li")];
   if (liLeft.length <= 0) {
