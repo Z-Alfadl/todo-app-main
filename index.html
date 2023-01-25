@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" color-mode="light">
 
 <head>
   <meta charset="UTF-8">
@@ -9,13 +9,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <title>Frontend Mentor | Todo app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-
-
-
-  </style>
 </head>
 
 <body class="light-body" id="stage">
@@ -27,59 +20,71 @@
 
   <main class="light-mode">
     <div class="container">
+      <!--Title and Light/Dark toggle-->
       <div class="banner">
         <h1>Todo</h1>
         <a class="toggle-light" id="swap"></a>
       </div>
-      <div class="todo">
-        <label for="todo" class="label" id="input-label">
+      <!--Input section for List-->
+      
+        <label for="todo" class="input-label" id="todo-label">
           <span class="circle"></span>
           <input id="entry" type="text" placeholder="Create a new Todo..." onkeydown="appendEntry">
         </label>
-        <ul class="todo-list" id="tasks">
-          <li class="todo-entry complete" draggable="true">
-            <input class="check circle" checked onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">Complete Online Javascript Course</p>
-            <button class="delete"><img src="./images/icon-cross.svg"></button>
-          </li>
-          <li class="todo-entry" draggable="true">
-            <input class="check circle" onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">Pick up Groceries</p>
-            <button class="delete"><img src="./images/icon-cross.svg"></button>
-          </li>
-          <li class="todo-entry" draggable="true">
-            <input class="check circle" onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">10 minutes of Meditation</p>
-            <button class="delete tester"><img src="./images/icon-cross.svg"></button>
-          </li>
-          <li class="todo-entry" draggable="true">
-            <input class="check circle" onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">Read for 1 hour</p>
-            <button class="delete"><img src="./images/icon-cross.svg"></button>
-          </li>
-          <li class="todo-entry" draggable="true">
-            <input class="check circle" onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">Jog around the park 3x</p>
-            <button class="delete"><img src="./images/icon-cross.svg"></button>
-          </li>
-          <li class="todo-entry" draggable="true">
-            <input class="check circle" onclick="checkTag(this)" type="checkbox">
-            <p class="todo-sample">Complete Todo App on Frontend Mentor</p>
-            <button class="delete"><img src="./images/icon-cross.svg"></button>
-          </li>
-        </ul>
-      </div>
-      <div class="container-foot">
-        <div class="item-number">
-          <p id="remaining">5 items left</p>
+        
+        <div class="todo">
+          <!--Beginning of Todo List-->
+        <div class="todo-body" id="list-body">
+          <ul class="todo-list" id="tasks" >
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"checked  type="checkbox">
+              <p class="todo-sample">Complete Online Javascript Course</p>
+              <button class="delete"><img src="./images/icon-cross.svg"></button>
+            </li>
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"  type="checkbox">
+              <p class="todo-sample">Pick up Groceries</p>
+              <button class="delete"><img src="./images/icon-cross.svg"></button>
+            </li>
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"  type="checkbox">
+              <p class="todo-sample">10 minutes of Meditation</p>
+              <button class="delete tester"><img src="./images/icon-cross.svg"></button>
+            </li>
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"  type="checkbox">
+              <p class="todo-sample">Read for 1 hour</p>
+              <button class="delete"><img src="./images/icon-cross.svg"></button>
+            </li>
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"  type="checkbox">
+              <p class="todo-sample">Jog around the park 3x</p>
+              <button class="delete"><img src="./images/icon-cross.svg"></button>
+            </li>
+            <li class="todo-entry" draggable="true">
+              <input class="check circle"  type="checkbox">
+              <p class="todo-sample">Complete Todo App on Frontend Mentor</p>
+              <button class="delete"><img src="./images/icon-cross.svg"></button>
+            </li>
+          </ul>
         </div>
-        <div class="todo-filters" id="filter-box">
-          <a class="filter active" id="all">All</a>
-          <a class="filter" id="active">Active</a>
-          <a class="filter" id="complete">Completed</a>
+        <!--Todo List End-->
+
+        <!--Section Containing tracker, filter and clear button-->
+        <div class="container-foot" id="list-meta">
+          <div class="item-number">
+            <p id="remaining">5 items left</p>
+          </div>
+          <div class="todo-filters" id="filter-box">
+            <a class="filter active" id="all">All</a>
+            <a class="filter" id="active">Active</a>
+            <a class="filter" id="complete">Completed</a>
+          </div>
+          <a id="clear">Clear Completed</a>
         </div>
-        <a id="clear">Clear Completed</a>
+       
       </div>
+      
       <div class="dragndrop">
         <p>Drag and drop to reorder list</p>
       </div>
@@ -88,7 +93,7 @@
     </div>
   </main>
 
-  <div class="attribution">
+  <div class="attribution" id="attribute">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Ziad Alfadl</a>.
   </div>
